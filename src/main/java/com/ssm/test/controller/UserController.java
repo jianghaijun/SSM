@@ -22,7 +22,7 @@ public class UserController {
 	@ResponseBody
 	public UserBean userList() {
 		UserBean userbean = new UserBean();
-		userbean.setUserName("ÕÅÈı");
+		userbean.setUserName("å¼ ä¸‰");
 		return userbean;
 	}
 	
@@ -37,7 +37,7 @@ public class UserController {
 	public int insertUser() {
 		UserBean user = new UserBean();
 		user.setId(4);
-		user.setUserName("ÕÔÁù");
+		user.setUserName("èµµå…­");
 		return userService.insertUser(user);
 	}
 	
@@ -46,7 +46,7 @@ public class UserController {
 	public int updatetUser() {
 		UserBean user = new UserBean();
 		user.setId(4);
-		user.setUserName("ÕÔÁùÁù");
+		user.setUserName("èµµå…­å…­");
 		return userService.updateUser(user);
 	}
 	

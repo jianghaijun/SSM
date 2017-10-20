@@ -23,9 +23,4 @@ public class UserBean implements Serializable {
 		this.userName = userName;
 	}
 
-	@Override
-	public String toString() {
-		return "id£º" + getId() + "£¬userName£º" + getUserName();
-	}
-
 }
