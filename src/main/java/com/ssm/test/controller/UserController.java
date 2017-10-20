@@ -31,5 +31,37 @@ public class UserController {
 	public List<UserBean> getUserList(){
 		return userService.getUserList();
 	}
+	
+	@RequestMapping(value = "/insertUser", method = RequestMethod.GET)
+	@ResponseBody
+	public int insertUser() {
+		UserBean user = new UserBean();
+		user.setId(4);
+		user.setUserName("’‘¡˘");
+		return userService.insertUser(user);
+	}
+	
+	@RequestMapping(value = "/updateUser", method = RequestMethod.GET)
+	@ResponseBody
+	public int updatetUser() {
+		UserBean user = new UserBean();
+		user.setId(4);
+		user.setUserName("’‘¡˘¡˘");
+		return userService.updateUser(user);
+	}
+	
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+	@ResponseBody
+	public int deleteUser() {
+		UserBean user = new UserBean();
+		user.setId(4);
+		return userService.deleteUser(user);
+	}
+	
+	@RequestMapping(value = "/selectUserById", method = RequestMethod.GET)
+	@ResponseBody
+	public UserBean selectUserById(int id) {
+		return userService.selectUserById(id);
+	}
 
 }
