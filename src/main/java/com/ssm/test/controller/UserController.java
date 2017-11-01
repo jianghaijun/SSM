@@ -3,8 +3,10 @@ package com.ssm.test.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,9 +20,10 @@ public class UserController {
 	@Resource
 	private UserService userService;
 
-	@RequestMapping(value = "/UserList", method = RequestMethod.GET)
+	@RequestMapping(value = "/UserList", method = RequestMethod.POST, produces={"application/json;charset=UTF-8"})
 	@ResponseBody
-	public UserBean userList() {
+	public UserBean userList(HttpServletRequest request) {
+		System.out.println(request.getParameter("userName") + "-----userName-------" + "------passWord----" + request.getParameter("passWord"));
 		UserBean userbean = new UserBean();
 		userbean.setUserName("张三");
 		return userbean;
@@ -32,12 +35,9 @@ public class UserController {
 		return userService.getUserList();
 	}
 	
-	@RequestMapping(value = "/insertUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertUser", method = RequestMethod.POST, produces={"application/json;charset=UTF-8"})
 	@ResponseBody
-	public int insertUser() {
-		UserBean user = new UserBean();
-		user.setId(4);
-		user.setUserName("赵六");
+	public int insertUser(@RequestBody UserBean user) {
 		return userService.insertUser(user);
 	}
 	
